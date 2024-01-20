@@ -16,16 +16,16 @@ export default async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="p-2 rounded-lg bg-gray-50 md:pt-0">
+        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div
                 key={invoice.id}
-                className="w-full p-4 mb-2 bg-white rounded-md"
+                className="mb-2 w-full rounded-md bg-white p-4"
               >
-                <div className="flex items-center justify-between pb-4 border-b">
+                <div className="flex items-center justify-between border-b pb-4">
                   <div>
-                    <div className="flex items-center mb-2">
+                    <div className="mb-2 flex items-center">
                       <Image
                         src={invoice.image_url}
                         className="mr-2 rounded-full"
@@ -39,7 +39,7 @@ export default async function InvoicesTable({
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
-                <div className="flex items-center justify-between w-full pt-4">
+                <div className="flex w-full items-center justify-between pt-4">
                   <div>
                     <p className="text-xl font-medium">
                       {formatCurrency(invoice.amount)}
@@ -55,7 +55,7 @@ export default async function InvoicesTable({
             ))}
           </div>
           <table className="hidden min-w-full text-gray-900 md:table">
-            <thead className="text-sm font-normal text-left rounded-lg">
+            <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Customer
@@ -83,7 +83,7 @@ export default async function InvoicesTable({
                   key={invoice.id}
                   className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
                 >
-                  <td className="py-3 pl-6 pr-3 whitespace-nowrap">
+                  <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Image
                         src={invoice.image_url}
@@ -95,19 +95,19 @@ export default async function InvoicesTable({
                       <p>{invoice.name}</p>
                     </div>
                   </td>
-                  <td className="px-3 py-3 whitespace-nowrap">
+                  <td className="whitespace-nowrap px-3 py-3">
                     {invoice.email}
                   </td>
-                  <td className="px-3 py-3 whitespace-nowrap">
+                  <td className="whitespace-nowrap px-3 py-3">
                     {formatCurrency(invoice.amount)}
                   </td>
-                  <td className="px-3 py-3 whitespace-nowrap">
+                  <td className="whitespace-nowrap px-3 py-3">
                     {formatDateToLocal(invoice.date)}
                   </td>
-                  <td className="px-3 py-3 whitespace-nowrap">
+                  <td className="whitespace-nowrap px-3 py-3">
                     <InvoiceStatus status={invoice.status} />
                   </td>
-                  <td className="py-3 pl-6 pr-3 whitespace-nowrap">
+                  <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
                       <UpdateInvoice id={invoice.id} />
                       <DeleteInvoice id={invoice.id} />
